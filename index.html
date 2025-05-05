@@ -9,31 +9,60 @@
       box-sizing: border-box;
     }
     body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  min-height: 100vh; /* changed from height: 100vh */
-  background-image: url('meow.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px; /* helps on mobile */
-}
-.login-container {
-  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent background */
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  width: 100%;
-  max-width: 400px;
-}
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: #222;
+    }
+
+    /* Animated Octagon Background */
+    .octagon {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 250px;
+      height: 250px;
+      background: #4CAF50;
+      clip-path: polygon(
+        30% 0%, 70% 0%, 100% 30%,
+        100% 70%, 70% 100%, 30% 100%,
+        0% 70%, 0% 30%
+      );
+      opacity: 0.4;
+      animation: float 8s linear infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+      100% {
+        transform: translate(300px, 100px) rotate(360deg);
+      }
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      z-index: 1;
+      position: relative;
+    }
 
     .login-container h2 {
       text-align: center;
       margin-bottom: 24px;
     }
+
     .login-container input[type="text"],
     .login-container input[type="password"] {
       width: 100%;
@@ -42,6 +71,7 @@
       border: 1px solid #ccc;
       border-radius: 6px;
     }
+
     .login-container button {
       width: 100%;
       padding: 12px;
@@ -52,40 +82,45 @@
       cursor: pointer;
       font-size: 16px;
     }
+
     .login-container button:hover {
       background-color: #45a049;
     }
-    .login-container .signup-link {
+
+    .signup-link {
       margin-top: 20px;
       text-align: center;
       font-size: 14px;
     }
-    .login-container .signup-link a {
+
+    .signup-link a {
       color: #4CAF50;
       text-decoration: none;
     }
-    .login-container .signup-link a:hover {
+
+    .signup-link a:hover {
       text-decoration: underline;
     }
+
     @media (max-width: 480px) {
-  .login-container {
-    padding: 20px;
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  .login-container h2 {
-    font-size: 20px;
-  }
-  .login-container input,
-  .login-container button {
-    font-size: 14px;
-  }
-}
-
-
+      .login-container {
+        padding: 20px;
+        max-width: 90%;
+        border-radius: 8px;
+      }
+      .login-container h2 {
+        font-size: 22px;
+      }
+      .login-container button {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Visible and Moving Octagon -->
+  <div class="octagon"></div>
 
   <div class="login-container">
     <h2>Login</h2>
@@ -98,6 +133,7 @@
       Don't have an account? <a href="#">Sign up</a>
     </div>
   </div>
+  
 
 </body>
 </html>
