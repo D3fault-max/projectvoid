@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .header-wrapper {
+  background-color: rgb(255, 255, 255); /* semi-transparent white */
+  padding: 16px 32px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #3a0ca3, #7209b7);
+      color: #333;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .left {
+      flex: 1 1 500px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .left h2 {
+      font-size: 2.8rem;
+      color: #7209b7;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .buttons button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-dark {
+      background: #333;
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #555;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #7209b7;
+      color: #7209b7;
+    }
+
+    .btn-outline:hover {
+      background: #7209b7;
+      color: white;
+    }
+
+    .right {
+      flex: 1 1 400px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .right img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+    }
+
+    header {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1100px;
+    }
+
+    header nav a {
+      margin: 0 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-right button {
+      background-color: #7209b7;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-right button:hover {
+      background-color: #560bad;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left, .right {
+        padding: 20px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-wrapper">
+      <div><strong>Dandreb<span style="color:#f1f1f1;">●</span></strong></div>
+      <nav>
+        <a href="#">Rhydel</a>
+        <a href="#">Josh</a>
+        <a href="#">Andrei</a>
+        <a href="#">Ash</a>
+        <a href="#">Tawag ng tanghalan</a>
+      </nav>
+      <div class="nav-right">
+        <button>Let's Talk</button>
+      </div>
+    </div>    
+  </header>
+
+  <div class="container">
+    <div class="left">
+      <h1>Hi, I'm Dandreb!from BS ECE 1</h1>
+      <h2>AMPOGI KO</h2>
+      <p>
+        Ang sarap! Ang sarap! Ang sarap! Ang sarap!
+        Ang sarap! Ang sarap! Ang sarap! Ang sarap!
+      </p>
+      <div class="buttons">
+        <button class="btn-dark">Projects ⚙️</button>
+        <button class="btn-outline">Hire Me 💼</button>
+      </div>
+    </div>
+    <div class="right">
+      <img src="poginidan.jpg" alt="dandreb" />
+    </div>
+  </div>
+
+</body>
+</html>

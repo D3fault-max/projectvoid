@@ -4,7 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Page</title>
+  <script>
+    function checkLogin(event) {
+      event.preventDefault();
+  
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const errorMsg = document.getElementById("error-msg");
+  
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+  
+      if (username === "admin" && password === "1234") {
+        window.location.href = "homepage.html";
+      } else {
+        errorMsg.textContent = "Wrong username or password.";
+        passwordInput.style.borderColor = "red";
+      }
+    }  
+  </script>  
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -17,38 +37,13 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      background-color: #222;
-    }
-
-    /* Animated Octagon Background */
-    .octagon {
-      position: absolute;
-      top: 20%;
-      left: 10%;
-      width: 250px;
-      height: 250px;
-      background: #4CAF50;
-      clip-path: polygon(
-        30% 0%, 70% 0%, 100% 30%,
-        100% 70%, 70% 100%, 30% 100%,
-        0% 70%, 0% 30%
-      );
-      opacity: 0.4;
-      animation: float 8s linear infinite alternate;
-      z-index: 0;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translate(0px, 0px) rotate(0deg);
-      }
-      100% {
-        transform: translate(300px, 100px) rotate(360deg);
-      }
+      background-image: url('background.jpg'); 
+      background-size: cover;
+      background-position: center;
     }
 
     .login-container {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.226);
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -119,21 +114,19 @@
 </head>
 <body>
 
-  <!-- Visible and Moving Octagon -->
-  <div class="octagon"></div>
 
   <div class="login-container">
     <h2>Login</h2>
-    <form action="#" method="post">
-      <input type="text" placeholder="Username" name="username" required />
-      <input type="password" placeholder="Password" name="password" required />
-      <button type="submit">Login</button>
-    </form>
+    <form onsubmit="return checkLogin(event)">
+        <input type="text" id="username" placeholder="Username" name="username" required />
+        <input type="password" id="password" placeholder="Password" name="password" required />
+        <p id="error-msg" style="color: red; font-size: 14px; margin: 4px 0 12px;"></p>
+        <button type="submit">Login</button>
+      </form>
+      
     <div class="signup-link">
-      Don't have an account? <a href="#">Sign up</a>
+      Don't have an account?</style> <a href="#">Sign up</a>
     </div>
   </div>
-  
-
 </body>
 </html>
