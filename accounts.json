@@ -1,0 +1,12 @@
+[
+  {
+    "email": "admin@ece.com",
+    "password": "1234",
+    "name": "Admin User"
+  },
+  {
+    "email": "student@ece.com",
+    "password": "abcd",
+    "name": "ECE Student"
+  }
+]
