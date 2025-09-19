@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics and Communication Engineering</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6b11cb57, #2575fc);
+      background-image: url("bgloginpage.png");
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    /* Moving background shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .shape:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 15%; animation-duration: 12s; }
+    .shape:nth-child(2) { width: 60px; height: 60px; bottom: 20%; right: 20%; animation-duration: 8s; }
+    .shape:nth-child(3) { width: 150px; height: 150px; top: 50%; right: 10%; animation-duration: 15s; }
+    .shape:nth-child(4) { width: 80px; height: 80px; bottom: 15%; left: 10%; animation-duration: 18s; }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(0); }
+      50%  { transform: translateY(-30px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    /* Extended login box */
+    .login-container {
+      background: rgba(255, 255, 255, 0.218);
+      padding: 40px;
+      border-radius: 20px;
+      width: 800px;
+      max-width: 90%;
+      display: flex;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Left side: Welcome text */
+    .login-info {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      border-radius: 15px;
+      margin-right: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .login-info h1 {
+      margin-bottom: 15px;
+    }
+
+    .login-info p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Right side: Form */
+    .login-form {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+      color: #6a11cb;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .extra-links {
+      margin-top: 15px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .extra-links a {
+      color: #6a11cb;
+      text-decoration: none;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background shapes -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
+  <div class="login-container">
+    <!-- Left side: Info -->
+    <div class="login-info">
+      <h1>ECE Department</h1>
+      <p>SI andrei ay masarap</p>
+    </div>
+
+    <!-- Right side: Login Form -->
+    <div class="login-form">
+      <h2>Sign In</h2>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required autocomplete="off">
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="extra-links">
+          <p>Don't have an account? <a href="register.html">Sign up</a></p>
+          <p><a href="#">Forgot password?</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const { createClient } = supabase;
+  const supabaseClient = createClient(
+    "https://vfzdlwdlwfwkqkeuikuq.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmemRsd2Rsd2Z3a3FrZXVpa3VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyODEyMDAsImV4cCI6MjA3Mzg1NzIwMH0.Ux0sa6Yzr2wFgef_I3U2rRGE4xIub0rEn7ScjNXdXB0"
+  );
+
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert("Login failed: " + error.message);
+    } else {
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location.href = "homepage.html";
+    }
+  });
+</script>
+
+
+</body>
+</html>
